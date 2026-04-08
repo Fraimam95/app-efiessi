@@ -1,0 +1,189 @@
+:root {
+    --primary: #1a3a5f;
+    --secondary: #28a745;
+    --accent: #ffc107;
+    --bg: #f0f2f5;
+    --white: #ffffff;
+    --text: #333;
+    --danger: #dc3545;
+}
+
+body { 
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+    margin: 0; 
+    padding: 20px;
+    background-color: var(--bg); 
+    color: var(--text);
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 25px; 
+    justify-content: center;
+}
+
+.painel { 
+    background: var(--white); 
+    padding: 25px; 
+    width: 100%;
+    max-width: 380px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: sticky; 
+    top: 20px; 
+    max-height: 90vh;
+    overflow-y: auto; 
+}
+
+h2 { color: var(--primary); margin-top: 0; font-size: 1.5rem; border-bottom: 2px solid var(--bg); padding-bottom: 10px; }
+.grupo-titulo { font-size: 14px; color: var(--primary); font-weight: bold; margin-top: 20px; margin-bottom: 5px; text-transform: uppercase; border-left: 4px solid var(--accent); padding-left: 8px;}
+
+/* --- ABAS DE AMBIENTES --- */
+.abas-ambientes { 
+    display: flex; 
+    gap: 8px; 
+    margin-top: 10px; 
+    margin-bottom: 20px; 
+    overflow-x: auto; 
+    padding-bottom: 5px; 
+}
+.aba { 
+    flex: 1; 
+    padding: 10px 5px; 
+    font-size: 12px; 
+    font-weight: bold;
+    background: #e9ecef; 
+    color: #555; 
+    border-radius: 6px; 
+    border: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.aba:hover { background: #dde2e6; }
+.aba.ativa { 
+    background: var(--primary); 
+    color: white; 
+    box-shadow: 0 4px 8px rgba(26,58,95,0.2);
+}
+.abas-ambientes::-webkit-scrollbar { height: 4px; }
+.abas-ambientes::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+
+/* --- INPUTS E LABELS --- */
+label { display: block; margin-top: 15px; font-weight: 600; font-size: 12px; text-transform: uppercase; color: #666; }
+.dica-medida { font-size: 10px; color: #888; text-transform: none; display: block; margin-top: -2px; margin-bottom: 5px;}
+
+input, select { 
+    width: 100%; 
+    padding: 10px; 
+    margin-top: 5px; 
+    border: 1px solid #ddd; 
+    border-radius: 6px; 
+    background: #fafafa;
+    transition: border 0.3s;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus { border-color: var(--primary); outline: none; background: #fff; }
+
+/* --- BOTÕES PRINCIPAIS --- */
+button { cursor: pointer; transition: all 0.3s; border-radius: 6px; font-weight: bold; border: none; }
+.add { background-color: var(--primary); color: white; padding: 12px; font-size: 16px; margin-top: 20px; width: 100%; }
+.add:hover { background-color: #112a47; transform: translateY(-2px); }
+.cancelar { background-color: #e9ecef; color: #666; margin-top: 8px; padding: 8px; width: 100%; display: none; }
+
+/* --- ÁREA DE RESUMO --- */
+.resumo { 
+    background: var(--white); 
+    padding: 25px; 
+    flex: 1; 
+    min-width: 320px;
+    max-width: 800px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.controles-resumo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    background: #e7f3ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #cce5ff;
+}
+.controles-resumo label { margin-top: 0; color: var(--primary); font-size: 12px;}
+.controles-resumo input, .controles-resumo select { margin-top: 5px; font-weight: bold; color: var(--primary); font-size: 14px; }
+
+details { background: #fff; border: 1px solid #eee; border-radius: 8px; margin-bottom: 15px; overflow: hidden; }
+summary { 
+    padding: 15px; 
+    background: #f8f9fa; 
+    font-weight: bold; 
+    cursor: pointer; 
+    color: var(--primary); 
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+summary::-webkit-details-marker { display: none; }
+
+.icone-expandir { font-size: 12px; transition: transform 0.3s ease; display: inline-block; margin-right: 8px; color: var(--primary); }
+details[open] .icone-expandir { transform: rotate(180deg); }
+
+/* --- ITENS DO ORÇAMENTO --- */
+.item-modulo { padding: 15px; border-bottom: 1px solid #f1f1f1; display: flex; flex-direction: column; background: #fff; }
+.item-linha-principal { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.item-modulo:last-child { border-bottom: none; }
+
+.info-preco { text-align: right; min-width: 140px; }
+.preco-vista { color: var(--primary); font-size: 15px; font-weight: bold; display: block; }
+.preco-parcelado { color: #888; font-size: 11px; display: block; margin-top: 4px; }
+
+.btn-lote { background: #e7f3ff; color: var(--primary); padding: 8px 15px; font-size: 12px; margin: 10px; border: 1px solid #cce5ff; width: calc(100% - 20px); box-sizing: border-box;}
+.btn-lote:hover { background: #cce5ff; }
+.btn-editar { background: var(--accent); color: #000; padding: 5px 10px; font-size: 11px; }
+.btn-remover { background: var(--danger); color: white; padding: 5px 10px; font-size: 11px; margin-left: 5px; }
+
+.area-totais { margin-top: 10px; padding-top: 20px; border-top: 3px double #ccc; text-align: right; }
+
+/* --- GRUPO DE BOTÕES FINAIS (WPP E PDF) --- */
+.grupo-botoes { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.wpp-btn { background-color: var(--secondary); color: white; padding: 16px; font-size: 16px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.wpp-btn:hover { background-color: #218838; box-shadow: 0 4px 12px rgba(40,167,69,0.3); }
+.pdf-btn { background-color: var(--primary); color: white; padding: 14px; font-size: 14px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.pdf-btn:hover { background-color: #112a47; box-shadow: 0 4px 12px rgba(26,58,95,0.3); }
+
+.btn-limpar { background: none; color: var(--danger); font-size: 12px; margin-top: 15px; width: auto; opacity: 0.7; }
+.btn-limpar:hover { opacity: 1; text-decoration: underline; }
+
+/* --- CAMPOS DINÂMICOS --- */
+.campo-dinamico { display: none; background: #e7f3ff; padding: 12px; margin-top: 10px; border-radius: 6px; border: 1px solid #cce5ff; }
+
+#secaoPagamento { display: none; animation: fadeIn 0.5s ease-in-out; }
+#secaoDadosCliente { transition: opacity 0.3s; }
+
+/* --- TABELA DE RAIO-X (PLANO DE CORTE) --- */
+.tabela-raiox { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 11px; }
+.tabela-raiox th { border-bottom: 1px solid #b8daff; text-align: left; padding: 4px; color: #0056b3; }
+.tabela-raiox td { border-bottom: 1px dotted #ccc; padding: 4px; color: #444; }
+
+/* --- ANIMAÇÕES E RESPONSIVO --- */
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(10px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+@media (max-width: 600px) {
+    body { padding: 10px; }
+    .painel { position: relative; top: 0; max-width: 100%; max-height: none; }
+    .controles-resumo { grid-template-columns: 1fr; }
+}
+
+/* --- SCROLLBARS --- */
+.painel::-webkit-scrollbar { width: 6px; }
+.painel::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 8px;}
+.painel::-webkit-scrollbar-thumb { background: #ccc; border-radius: 8px; }
+.painel::-webkit-scrollbar-thumb:hover { background: #aaa; }
